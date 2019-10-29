@@ -1,0 +1,28 @@
+type: "object"
+required: 
+  - "minLatitude"
+  - "maxLatitude"
+  - "minLongitude"
+  - "maxLongitude"
+  - "globalCoverage"
+properties: 
+  minLatitude: 
+    description: "TODO"
+    type: "integer"
+    example: -90
+  maxLatitude: 
+    description: "TODO"
+    type: "integer"
+    example: 90
+  minLongitude: 
+    description: "TODO"
+    type: "integer"
+    example: -180
+  maxLongitude: 
+    description: "TODO"
+    type: "integer"
+    example: 180
+  globalCoverage: 
+    description: "TODO"
+    type: "boolean"
+    example: true

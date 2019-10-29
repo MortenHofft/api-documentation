@@ -1,0 +1,11 @@
+type: "object"
+required: 
+  - "description"
+  - "boundingBox"
+properties: 
+  description: 
+    description: "TODO"
+    type: "string"
+    example: "Nelidovo administrative District, Tver Region, Russia"
+  boundingBox: 
+    $ref: "./boundingBox.yaml"

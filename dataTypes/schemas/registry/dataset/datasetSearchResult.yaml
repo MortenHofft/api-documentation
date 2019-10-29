@@ -1,0 +1,33 @@
+type: "object"
+required: 
+  - "offset"
+  - "limit"
+  - "endOfRecords"
+  - "count"
+  - "results"
+  - "facets"
+properties: 
+  offset: 
+    description: "TODO"
+    type: "integer"
+    example: 0
+  limit: 
+    description: "TODO"
+    type: "integer"
+    example: 100
+  endOfRecords: 
+    description: "TODO"
+    type: "boolean"
+    example: false
+  count: 
+    description: "TODO"
+    type: "integer"
+    example: 17469
+  results: 
+    description: "TODO"
+    type: "array"
+    items: 
+      $ref: "./datasetSearchItem.yaml"
+  facets: 
+    description: "TODO"
+    type: "string"

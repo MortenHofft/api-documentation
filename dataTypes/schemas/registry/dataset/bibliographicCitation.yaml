@@ -1,0 +1,13 @@
+type: "object"
+required: 
+  - "text"
+  - "identifier"
+properties: 
+  text: 
+    description: "TODO"
+    type: "string"
+    example: "Thevenieau, F.; M-L Fardeau; B. Ollivier; C. Joulian; S. Baena. 2007. Desulfomicrobium thermophilum sp. nov., a novel thermophilic sulphate-reducing bacterium isolated from a terrestrial hot spring in Colombia. Extremophiles. (2): 295-303."
+  identifier: 
+    description: "TODO"
+    type: "string"
+    example: "DOI 10.1007/s00792-006-0039-9"

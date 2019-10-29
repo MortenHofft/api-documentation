@@ -1,0 +1,39 @@
+type: "object"
+required: 
+  - "title"
+  - "contacts"
+  - "funding"
+  - "studyAreaDescription"
+  - "designDescription"
+  - "abstract"
+  - "identifier"
+properties: 
+  title: 
+    description: "TODO"
+    type: "string"
+    example: "Mobilization of biodiversity data on soil mesofauna across European Russia biomes"
+  contacts: 
+    description: "TODO"
+    type: "array"
+    items: 
+      $ref: "../contact.yaml"
+  funding: 
+    description: "TODO"
+    type: "string"
+    example: "This project is funded under the European Union's Seventh Framework Programme (FP7/2007-2013) under grant agreement №312848."
+  studyAreaDescription: 
+    description: "TODO"
+    type: "string"
+    example: "Europe"
+  designDescription: 
+    description: "TODO"
+    type: "string"
+    example: "An European joint network of cave arachnologists was assembled to collect data on cave spider communities across Europe in order to explore their continental diversity patterns."
+  abstract: 
+    description: "TODO"
+    type: "string"
+    example: "Distribution data on cave-dwelling spiders in Europe."
+  identifier: 
+    description: "TODO"
+    type: "string"
+    example: "Russia2019_12"

@@ -1,0 +1,46 @@
+type: "object"
+required: 
+  - "key"
+  - "type"
+  - "url"
+  - "createdBy"
+  - "modifiedBy"
+  - "created"
+  - "modified"
+  - "machineTags"
+  - "description"
+properties: 
+  key: 
+    description: "TODO"
+    type: "integer"
+    example: 437749
+  type: 
+    description: "TODO"
+    type: "string"
+    example: "EML"
+  url: 
+    description: "TODO"
+    type: "string"
+    example: "http://gbif.ru:8080/ipt/eml.do?r=nelidovo"
+  createdBy: 
+    description: "TODO"
+    type: "string"
+    example: "9d8de7ef-a571-4bc3-985a-86a9b8dddd77"
+  modifiedBy: 
+    description: "TODO"
+    type: "string"
+    example: "9d8de7ef-a571-4bc3-985a-86a9b8dddd77"
+  created: 
+    description: "TODO"
+    type: "string"
+    example: "2019-10-07T08:06:41.269+0000"
+  modified: 
+    description: "TODO"
+    type: "string"
+    example: "2019-10-07T08:06:41.269+0000"
+  machineTags: 
+    $ref: "./machineTag.yaml"
+  description: 
+    description: "TODO"
+    type: "string"
+    example: "A Zenodo Record"

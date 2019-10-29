@@ -1,0 +1,33 @@
+type: "object"
+required: 
+  - "key"
+  - "namespace"
+  - "name"
+  - "value"
+  - "createdBy"
+  - "created"
+properties: 
+  key: 
+    description: "TODO"
+    type: "integer"
+    example: 4336956
+  namespace: 
+    description: "TODO"
+    type: "string"
+    example: "crawler.gbif.org"
+  name: 
+    description: "TODO"
+    type: "string"
+    example: "crawl_attempt"
+  value: 
+    description: "TODO"
+    type: "string"
+    example: "6"
+  createdBy: 
+    description: "TODO"
+    type: "string"
+    example: "crawler.gbif.org"
+  created: 
+    description: "TODO"
+    type: "string"
+    example: "2019-10-17T15:57:25.242+0000"

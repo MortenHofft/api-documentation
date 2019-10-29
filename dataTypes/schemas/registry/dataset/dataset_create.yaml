@@ -1,0 +1,85 @@
+type: "object"
+required: 
+  - "title"
+  - "publishingOrganizationKey"
+  - "installationKey"
+properties: 
+  parentDatasetKey: 
+    description: "TODO"
+    type: "uuid"
+    example: "ce6d084f-a28b-469b-961d-60f1f9facde5"
+  duplicateOfDatasetKey: 
+    description: "TODO"
+    type: "uuid"
+    example: "ce6d084f-a28b-469b-961d-60f1f9facde5"
+  installationKey: 
+    description: "TODO"
+    type: "uuid"
+    example: "7ce8aef1-9e92-11dc-8740-b8a03c50a999"
+  publishingOrganizationKey: 
+    description: "TODO"
+    type: "uuid"
+    example: "7ce8aef0-9e92-11dc-8738-b8a03c50a862"
+  alias: 
+    description: "TODO"
+    deprecated: true
+    type: "string"
+    example: "CoLife"
+  abbreviation: 
+    description: "TODO"
+    deprecated: true
+    type: "string"
+    example: "COL"
+  rights: 
+    description: "TODO"
+    deprecated: true
+    type: "string"
+    example: "All rights reserved"
+  doi: 
+    description: "TODO"
+    type: "string"
+    example: "10.11646/zootaxa.4683.1.8"
+  external: 
+    description: "TODO"
+    type: "boolean"
+    example: false
+  type: 
+    description: "TODO"
+    type: "string"
+    example: "CHECKLIST"
+  title: 
+    description: "TODO"
+    type: "string"
+    example: "Pangio bhujia, a new, peculiar species of miniature subterranean eel loach lacking dorsal and pelvic fins from India (Teleostei: Cobitidae)"
+  description: 
+    description: "TODO"
+    type: "string"
+    example: "This dataset contains the digitized treatments in Plazi based on the original journal article Anoop, V. K., Britz, Ralf, Arjun, C. P., Dahanukar, Neelesh, Raghavan, Rajeev (2019): Pangio bhujia, a new, peculiar species of miniature subterranean eel loach lacking dorsal and pelvic fins from India (Teleostei: Cobitidae). Zootaxa 4683 (1): 144-150, DOI: https://doi.org/10.11646/zootaxa.4683.1.8"
+  language: 
+    description: "TODO"
+    type: "string"
+    example: "eng"
+  homepage: 
+    description: "TODO"
+    type: "string"
+    example: "http://tb.plazi.org/GgServer/summary/9070FE586D50FFE87479FF91FFD55B33"
+  lockedForAutoUpdate: 
+    description: "TODO"
+    type: "boolean"
+    example: false
+  license: 
+    description: "TODO"
+    type: "string"
+    example: "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+  maintenanceUpdateFrequency: 
+    description: "TODO"
+    type: "string"
+    example: "UNKOWN"
+  logoUrl: 
+    description: "TODO"
+    type: "string"
+    example: "http://sev-in.ru/sites/default/files/inline-images/MainLog122o_0.png"
+  subtype: 
+    description: "TODO"
+    type: "string"
+    example: "OBSERVATION"

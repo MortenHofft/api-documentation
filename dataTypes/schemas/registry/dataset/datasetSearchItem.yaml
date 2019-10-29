@@ -1,0 +1,76 @@
+type: "object"
+required: 
+  - "key"
+  - "title"
+  - "type"
+  - "hostingOrganizationKey"
+  - "hostingOrganizationTitle"
+  - "publishingCountry"
+  - "publishingOrganizationKey"
+  - "publishingOrganizationTitle"
+  - "license"
+  - "recordCount"
+properties: 
+  key: 
+    description: "TODO"
+    type: "string"
+    example: "4b62872b-a3eb-4737-8388-cab09c747a81"
+  title: 
+    description: "TODO"
+    type: "string"
+    example: "NDFF Transect counts for bats"
+  description: 
+    description: "TODO"
+    type: "string"
+    example: "The monitoring program aims to determine population trends of the Pipistrellus pipistrellus, Ruige dwergvleermuis, Eptesicus serotinus and the Nyctalus noctula, by observing bats while cycling or walking along transacts in the autumn.\nDataset available via https://www.ndff.nl/english / serviceteamndff@natuurloket.nl\nPositive observations without zeros.\n18,654 records (March 2018)\nhttps://www.ndff.nl/overdendff/validatie/protocollen/17-208-vleermuistransecttelling/"
+  type: 
+    description: "TODO"
+    type: "string"
+    example: "METADATA"
+  hostingOrganizationKey: 
+    description: "TODO"
+    type: "string"
+    example: "6fbb8fe2-66e2-4a9e-bb39-b84665571f1c"
+  hostingOrganizationTitle: 
+    description: "TODO"
+    type: "string"
+    example: "Dutch National Database of Flora and Fauna (NDFF)"
+  countryCoverage: 
+    description: "TODO"
+    type: "string"
+  publishingCountry: 
+    description: "TODO"
+    type: "string"
+    example: "NL"
+  publishingOrganizationKey: 
+    description: "TODO"
+    type: "string"
+    example: "6fbb8fe2-66e2-4a9e-bb39-b84665571f1c"
+  publishingOrganizationTitle: 
+    description: "TODO"
+    type: "string"
+    example: "Dutch National Database of Flora and Fauna (NDFF)"
+  license: 
+    description: "TODO"
+    type: "string"
+    example: "http://creativecommons.org/licenses/by-nc/4.0/legalcode"
+  decades: 
+    description: "TODO"
+    type: "integer"
+    example: 1990
+  keywords: 
+    description: "TODO"
+    type: "string"
+    example: "Metadata"
+  recordCount: 
+    description: "TODO"
+    type: "integer"
+    example: 3319
+  projectIdentifier: 
+    description: "TODO"
+    type: "string"
+    example: "CESP2017-0004"
+  subtype: 
+    description: "TODO"
+    type: "string"
+    example: "NOMENCLATOR_AUTHORITY"

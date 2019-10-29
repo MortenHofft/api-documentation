@@ -1,0 +1,13 @@
+type: "object"
+required: 
+  - "verbatim"
+  - "interpreted"
+properties: 
+  verbatim: 
+    description: "TODO"
+    type: "string"
+    example: "family"
+  interpreted: 
+    description: "TODO"
+    type: "string"
+    example: "FAMILY"

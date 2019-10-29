@@ -1,0 +1,28 @@
+type: "object"
+required: 
+  - "key"
+  - "type"
+  - "identifier"
+  - "createdBy"
+  - "created"
+properties: 
+  key: 
+    description: "TODO"
+    type: "integer"
+    example: 199724
+  type: 
+    description: "TODO"
+    type: "string"
+    example: "UUID"
+  identifier: 
+    description: "TODO"
+    type: "string"
+    example: "9070FE586D50FFE87479FF91FFD55B33"
+  createdBy: 
+    description: "TODO"
+    type: "string"
+    example: "plazi"
+  created: 
+    description: "TODO"
+    type: "string"
+    example: "2019-10-07T07:29:13.376+0000"

@@ -1,0 +1,33 @@
+type: "object"
+required: 
+  - "key"
+  - "content"
+  - "createdBy"
+  - "modifiedBy"
+  - "created"
+  - "modified"
+properties: 
+  key: 
+    description: "TODO"
+    type: "integer"
+    example: 28953
+  content: 
+    description: "TODO"
+    type: "string"
+    example: "Auto-deletion of stale records: 3 occurrence(s) flagged for deletion. 6 was identified as the last normal crawl attempt."
+  createdBy: 
+    description: "TODO"
+    type: "string"
+    example: "crawler.gbif.org"
+  modifiedBy: 
+    description: "TODO"
+    type: "string"
+    example: "crawler.gbif.org"
+  created: 
+    description: "TODO"
+    type: "string"
+    example: "2019-10-17T23:53:24.514+0000"
+  modified: 
+    description: "TODO"
+    type: "string"
+    example: "2019-10-17T23:53:24.514+0000"

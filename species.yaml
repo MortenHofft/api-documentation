@@ -1,0 +1,78 @@
+openapi: 3.0.1
+info:
+  x-logo:
+    url: "https://www.gbif.org/img/logo/GBIF-2015-full-stacked.png"
+  title: GBIF
+  description: |
+    This is a sample server Petstore server.
+    You can find out more about Swagger at
+    [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).
+    For this sample, you can use the api key `special-key` to test the authorization filters.
+
+    # Errors
+
+    The API uses standard HTTP status codes to indicate the success or failure of the API call. The body of the response will be JSON in the following format:
+
+    ```
+    {
+      "message": "page not found"
+    }
+    ```
+
+    # Versioning
+
+    The API is usually changed in each release of Docker
+    <iframe height="500" style="width: 100%;" scrolling="no" title="jazzicon dumbed down" src="https://codepen.io/hofft/embed/dBGvwM?height=265&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+    See the Pen <a href='https://codepen.io/hofft/pen/dBGvwM'>jazzicon dumbed down</a> by Morten Hofft
+    (<a href='https://codepen.io/hofft'>@hofft</a>) on <a href='https://codepen.io'>CodePen</a>.
+    </iframe>
+
+  version: "0.1"
+servers:
+- url: http://api.gbif.org
+- url: https://api.gbif.org
+paths:
+  /v1/dataset/search:
+    get:
+      summary: species api
+      description: |
+        Auto generated using Swagger Inspector
+        
+        # test header in section
+        The API is usually changed in each release of Docker
+      parameters:
+      - name: q
+        description: "Assign [sdf](http://api.gbif.org/v1/enumeration/country)the specified name to the container. Must match `/?[a-zA-Z0-9_-]+`."
+        type: "string"
+        pattern: "/?[a-zA-Z0-9_-]+"
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: nature
+      - name: country
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: NL
+      - name: type
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: OCCURRENCE
+      responses:
+        200:
+          description: Auto generated using Swagger Inspector
+      servers:
+      - url: http://api.gbif.org
+    servers:
+    - url: http://api.gbif.org
+components: {}

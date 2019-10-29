@@ -1,0 +1,23 @@
+type: "object"
+required: 
+  - "key"
+  - "value"
+  - "createdBy"
+  - "created"
+properties: 
+  key: 
+    description: "TODO"
+    type: "integer"
+    example: 25
+  value: 
+    description: "TODO"
+    type: "string"
+    example: "Alterra"
+  createdBy: 
+    description: "TODO"
+    type: "string"
+    example: "registry-migration.gbif.org"
+  created: 
+    description: "TODO"
+    type: "string"
+    example: "2011-01-11T10:46:51.000+0000"

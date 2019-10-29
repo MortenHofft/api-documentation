@@ -1,0 +1,23 @@
+type: "object"
+required: 
+  - "name"
+  - "charset"
+  - "url"
+  - "format"
+properties: 
+  name: 
+    description: "TODO"
+    type: "string"
+    example: "Butterfly observations data. Monitoring butterflies in the Sierra Nevada (Granada, Spain)"
+  charset: 
+    description: "TODO"
+    type: "string"
+    example: "UTF-8"
+  url: 
+    description: "TODO"
+    type: "string"
+    example: "https://b2share.eudat.eu/records/d69ec17175db4b5e80e400e958543692"
+  format: 
+    description: "TODO"
+    type: "string"
+    example: "Shapefile"

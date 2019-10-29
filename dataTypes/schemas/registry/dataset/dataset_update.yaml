@@ -1,0 +1,11 @@
+
+allOf:     # Combines the CreateModel and adds
+  - $ref: './dataset_create.yaml'
+  - type: object
+    required:
+      - key
+    properties:
+      key:
+        description: "TODO"
+        type: "uuid"
+        example: "ce6d084f-a28b-469b-961d-60f1f9facde5"

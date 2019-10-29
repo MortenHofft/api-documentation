@@ -1,0 +1,102 @@
+type: "object"
+required: 
+  - "key"
+  - "type"
+  - "primary"
+  - "userId"
+  - "firstName"
+  - "lastName"
+  - "position"
+  - "email"
+  - "phone"
+  - "homepage"
+  - "address"
+properties: 
+  key:
+    description: "TODO"
+    type: "integer"
+    example: 12345
+  type: 
+    description: "TODO"
+    type: "string"
+    example: "AUTHOR"
+  primary: 
+    description: "TODO"
+    type: "boolean"
+    example: false
+  userId: 
+    description: "TODO"
+    type: "array"
+    items: 
+      type: string
+      example: "http://orcid.org/0000-0001-5434-2127"
+  firstName: 
+    description: "TODO"
+    type: "string"
+    example: "Marco"
+  lastName: 
+    description: "TODO"
+    type: "string"
+    example: "Isaia"
+  postalCode: 
+    description: "TODO"
+    type: "string"
+    example: "Isaia"
+  province: 
+    description: "TODO"
+    type: "string"
+    example: "Isaia"
+  city: 
+    description: "TODO"
+    type: "string"
+    example: "Isaia"
+  country: 
+    description: "TODO"
+    type: "string"
+    example: "Isaia"
+  position: 
+    description: "TODO"
+    type: "array"
+    items: 
+      type: string
+      example: Database Administrator
+  email: 
+    description: "TODO"
+    type: "array"
+    items: 
+      type: string
+      example: "myemail@gmail.com"
+  phone: 
+    description: "TODO"
+    type: "array"
+    items: 
+      type: string
+      example: "+45 12341234"
+  homepage: 
+    description: "TODO"
+    type: "array"
+    items: 
+      type: string
+      example: http://ebird.com
+  address: 
+    description: "TODO"
+    type: "array"
+    items: 
+      type: string
+      example: Bird street 52
+  createdBy: 
+    description: "TODO"
+    type: "string"
+    example: "plazi"
+  modifiedBy: 
+    description: "TODO"
+    type: "string"
+    example: "crawler.gbif.org"
+  created: 
+    description: "TODO"
+    type: "string"
+    example: "2019-10-07T07:29:13.145+0000"
+  modified: 
+    description: "TODO"
+    type: "string"
+    example: "2019-10-17T15:57:25.775+0000"

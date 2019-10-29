@@ -1,0 +1,29 @@
+type: "object"
+required: 
+  - "offset"
+  - "limit"
+  - "endOfRecords"
+  - "count"
+  - "results"
+properties: 
+  offset: 
+    description: "TODO"
+    type: "integer"
+    example: 0
+  limit: 
+    description: "TODO"
+    type: "integer"
+    example: 200
+  endOfRecords: 
+    description: "TODO"
+    type: "boolean"
+    example: false
+  count: 
+    description: "TODO"
+    type: "integer"
+    example: 47029
+  results: 
+    description: "TODO"
+    type: "array"
+    items: 
+      $ref: "./dataset.yaml"

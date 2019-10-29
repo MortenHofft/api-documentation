@@ -1,0 +1,13 @@
+type: "object"
+required: 
+  - "text"
+  - "identifier"
+properties: 
+  text: 
+    description: "TODO"
+    type: "string"
+    example: "Anoop V K, Britz R, Arjun C P, Dahanukar N, Raghavan R (2019). Pangio bhujia, a new, peculiar species of miniature subterranean eel loach lacking dorsal and pelvic fins from India (Teleostei: Cobitidae). Plazi.org taxonomic treatments database. Checklist dataset https://doi.org/10.11646/zootaxa.4683.1.8 accessed via GBIF.org on 2019-10-21."
+  identifier: 
+    description: "TODO"
+    type: "string"
+    example: "https://doi.org/10.15472/lhjlei"

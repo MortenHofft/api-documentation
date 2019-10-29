@@ -1,0 +1,29 @@
+type: "object"
+required: 
+  - "name"
+  - "identifier"
+  - "parentIdentifier"
+  - "specimenPreservationMethod"
+  - "curatorialUnits"
+properties: 
+  name: 
+    description: "TODO"
+    type: "string"
+    example: "department of Biology Hangzhou Normal College. Hangzhou"
+  identifier: 
+    description: "TODO"
+    type: "string"
+    example: "department of Biology Hangzhou Normal College. Hangzhou"
+  parentIdentifier: 
+    description: "TODO"
+    type: "string"
+    example: "department of Biology Hangzhou Normal College. Hangzhou"
+  specimenPreservationMethod: 
+    description: "TODO"
+    type: "string"
+    example: "ALCOHOL"
+  curatorialUnits: 
+    description: "TODO"
+    type: "array"
+    items: 
+      $ref: "./curatorialUnit.yaml"

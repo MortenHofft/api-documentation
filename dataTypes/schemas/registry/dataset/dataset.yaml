@@ -1,0 +1,183 @@
+
+allOf:     # Combines the CreateModel and adds
+  - $ref: './dataset_update.yaml'
+  - type: object
+    properties: 
+      doi: 
+        description: "TODO"
+        type: "string"
+        example: "10.11646/zootaxa.4683.1.8"
+      external: 
+        description: "TODO"
+        type: "boolean"
+        example: false
+      numConstituents: 
+        description: "TODO"
+        type: "integer"
+        example: 0
+      type: 
+        description: "TODO"
+        type: "string"
+        example: "CHECKLIST"
+      title: 
+        description: "TODO"
+        type: "string"
+        example: "Pangio bhujia, a new, peculiar species of miniature subterranean eel loach lacking dorsal and pelvic fins from India (Teleostei: Cobitidae)"
+      description: 
+        description: "TODO"
+        type: "string"
+        example: "This dataset contains the digitized treatments in Plazi based on the original journal article Anoop, V. K., Britz, Ralf, Arjun, C. P., Dahanukar, Neelesh, Raghavan, Rajeev (2019): Pangio bhujia, a new, peculiar species of miniature subterranean eel loach lacking dorsal and pelvic fins from India (Teleostei: Cobitidae). Zootaxa 4683 (1): 144-150, DOI: https://doi.org/10.11646/zootaxa.4683.1.8"
+      language: 
+        description: "TODO"
+        type: "string"
+        example: "eng"
+      homepage: 
+        description: "TODO"
+        type: "string"
+        example: "http://tb.plazi.org/GgServer/summary/9070FE586D50FFE87479FF91FFD55B33"
+      citation: 
+        $ref: "./citation.yaml"
+      lockedForAutoUpdate: 
+        description: "TODO"
+        type: "boolean"
+        example: false
+      createdBy: 
+        description: "TODO"
+        type: "string"
+        example: "plazi"
+      modifiedBy: 
+        description: "TODO"
+        type: "string"
+        example: "crawler.gbif.org"
+      created: 
+        description: "TODO"
+        type: "string"
+        example: "2019-10-07T07:29:13.145+0000"
+      modified: 
+        description: "TODO"
+        type: "string"
+        example: "2019-10-17T15:57:25.775+0000"
+      contacts: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "../contact.yaml"
+      endpoints: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "../endpoint.yaml"
+      machineTags: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "../machineTag.yaml"
+      tags:
+        description: "TODO"
+        type: "array"
+        items:
+          $ref: "../tag.yaml"
+      identifiers: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "../identifier.yaml"
+      comments: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "../comment.yaml"
+      bibliographicCitations: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "./bibliographicCitation.yaml"
+      curatorialUnits: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "./curatorialUnit.yaml"
+      taxonomicCoverages: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "./taxonomicCoverage.yaml"
+      geographicCoverages: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "./geographicCoverage.yaml"
+      temporalCoverages: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "./temporalCoverage.yaml"
+      keywordCollections: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "./keywordCollection.yaml"
+      countryCoverage: 
+        description: "TODO"
+        type: "array"
+        items: 
+          type: "string"
+          description: TODO - I have never seent data in this field. Is it deprecated?
+      collections: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "./collection.yaml"
+      dataDescriptions: 
+        description: "TODO"
+        type: "array"
+        items: 
+          $ref: "./dataDescription.yaml"
+      dataLanguage: 
+        description: "TODO"
+        type: "string"
+        example: "eng"
+      pubDate: 
+        description: "TODO"
+        type: "string"
+        example: "2019-01-01T00:00:00.000+0000"
+      license: 
+        description: "TODO"
+        type: "string"
+        example: "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+      version: 
+        description: "TODO"
+        type: "string"
+        example: "1.2"
+      project: 
+        $ref: "./project.yaml"
+      samplingDescription: 
+        $ref: "./samplingDescription.yaml"
+      maintenanceUpdateFrequency: 
+        description: "TODO"
+        type: "string"
+        example: "UNKOWN"
+      maintenanceDescription: 
+        description: "TODO"
+        type: "string"
+        example: ""
+      logoUrl: 
+        description: "TODO"
+        type: "string"
+        example: "http://sev-in.ru/sites/default/files/inline-images/MainLog122o_0.png"
+      purpose: 
+        description: "TODO"
+        type: "string"
+        example: "Updating Azorean biota checklists."
+      additionalInfo: 
+        description: "TODO"
+        type: "string"
+        example: "[autoridad]ANLA[numero]1293[titular]Universidad del Magdalena[nit o cedula]891.780.111-8[fecha]2013-12-18"
+      subtype: 
+        description: "TODO"
+        type: "string"
+        example: "OBSERVATION"
+      deleted: 
+        description: "TODO"
+        type: "string"
+        example: "2019-10-07T07:29:13.145+0000"

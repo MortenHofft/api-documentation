@@ -1,0 +1,33 @@
+type: "object"
+required: 
+  - "@type"
+  - "start"
+  - "end"
+  - "period"
+  - "type"
+  - "date"
+properties: 
+  '@type': 
+    description: "TODO"
+    type: "string"
+    example: "range"
+  start: 
+    description: "TODO"
+    type: "string"
+    example: "2019-02-04T00:00:00.000+0000"
+  end: 
+    description: "TODO"
+    type: "string"
+    example: "2019-02-10T00:00:00.000+0000"
+  period: 
+    description: "TODO"
+    type: "string"
+    example: "August 2014"
+  type: 
+    description: "TODO"
+    type: "string"
+    example: "FORMATION_PERIOD"
+  date: 
+    description: "TODO"
+    type: "string"
+    example: "2016-01-01T00:00:00.001+0000"

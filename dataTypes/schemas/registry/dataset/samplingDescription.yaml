@@ -1,0 +1,26 @@
+type: "object"
+required: 
+  - "studyExtent"
+  - "sampling"
+  - "methodSteps"
+  - "qualityControl"
+properties: 
+  studyExtent: 
+    description: "TODO"
+    type: "string"
+    example: "Spider composition was derived from Cave communities across Europe (35 - 67° Latitude; -9 - 37 Longitude)"
+  sampling: 
+    description: "TODO"
+    type: "string"
+    example: "Literature data and original records."
+  methodSteps: 
+    description: "TODO"
+    type: "array"
+    items: 
+      type: string
+      nullable: true
+      example: "Digitisation and morphological analysis of herbarium specimens: \n\nHerbarium specimens will be requested on loan from various local and international herbaria (BM, BOL, EA, GRA, K, NBG, NH, P, PRE and SAM). They will be used to evaluate (i) taxon boundaries and the morphological diversity of the different taxonomic entities, (ii) the ecological characteristics, and (iii) the distribution. All specimen information including images of the specimens, will be captured in the BRAHMS (Botanical Research and Herbarium Management System) database of the Bews Herbarium (http://herbaria.plants.ox.ac.uk/bol/brahms/) and will be made available on-line pending approval of various herbaria. Specimen data in Brahms can be easily exported in a variety of formats including Darwin Core for uploading to the SANBI’s national specimen database, GBIF and other biodiversity data aggregators.\n\nField work and collection of plant material:\n\nOn the basis of distribution information from the literature, herbarium specimen and through collaboration with citizen scientists such as the CREW teams, new and existing populations of the various Holothrix species will be identified and visited during four field sessions (two in the Cape Floristic Region and two along the Drakensberg escarpment). In order to evaluate morphological and genetic variation, several populations will be visited per species whenever possible. Plant material (herbarium vouchers, spirit material, tissue samples and photographs) will be collected from the field and deposited at the Bews Herbarium (NU) of the University of KwaZulu-Natal. Duplicates will be distributed to other relevant SA herbaria. Tissue will be dried using silicagel and stored at -20°C. Particular attention will be paid to\nrare species for which only one reference specimen will be collected. Timeline: during the flowering season i.e. January and March-April 2016 along the Drakensberg Escarpment; September-October in the GCFR.\nDNA sequence data for phylogenetic analysis and the Barcode of Life project DNA will be extracted from tissue preserved in silicagel using the Qiagen DNeasy plant mini kit following the manufacturer’s protocol. Three gene regions will be amplified by standard PCR techniques and will be sequenced at the Central Analytical Facility of Stellenbosch University. Two plastid regions (matK and trnL-F) and one nuclear marker (ITS) have been selected for their discriminative power, based on the recommendations of the Consortium for the Barcode of Life and our own experience for African Orchidaceae.\n\nRevising the taxonomy and compilation of computerized knowledge database:\n\nMorphological descriptions of the various taxa will be compiled using the free software package Xper2 (http://infosyslab.fr/lis/?q=en/resources/software/xper2). Xper2 is a taxonomic software platform that enables the compilation of standardized species descriptions from specimen measurements. It can also generate interactive dichotomous or multi-access keys that allow for computer-aided-identification. The knowledge database and interactive keys will be made freely accessible online.\n\nSpecies pages and distribution maps: \n\nSpecies pages, images and distribution maps will be compiled in BRAHMS and initially made available through BRAHMS online (BOL). BOL is used to publish BRAHMS databases online and the Bews Herbarium has its own server to do so. BOL websites can be richly developed with text, images, hyperlinks, tables, file\ndownloads and indeed any standard website feature. Websites can be linked to one or more BRAHMS databases and the online data query tools search these data and present the results in flexible text pages and data grids. Since the e-Flora of South Africa project also uses BRAHMS, species pages can be easily be transferred and integrated into the e-Flora project and, later on, into the World Online Flora as well. Furthermore, generating files from BRAHMS for uploading in other biodiversity data management systems (e.g. Scratchpads) is pre-programmed in BRAHMS and thus straightforward."
+  qualityControl: 
+    description: "TODO"
+    type: "string"
+    example: "Special attention was paid to birds showing territorial behavior or breeding display. Recordings of two or three simultaneously calling males were important in interpreting the results. A bird or pair of the same species recorded at the same site in at least two out of the four months was interpreted as residential/breeding/territorial (following Bibby et al., 2002)."

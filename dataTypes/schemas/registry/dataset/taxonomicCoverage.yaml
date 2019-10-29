@@ -1,0 +1,14 @@
+type: "object"
+required: 
+  - "description"
+  - "coverages"
+properties: 
+  description: 
+    description: "TODO"
+    type: "string"
+    example: "Microchiropteran (insect-eating) bats"
+  coverages: 
+    description: "TODO"
+    type: "array"
+    items: 
+      $ref: "./coverage.yaml"

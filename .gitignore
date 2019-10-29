@@ -1,0 +1,11 @@
+# IDE and OS dependent
+.vscode
+.DS_Store
+
+# Application specific
+node_modules/
+public/
+log/
+build/
+npm-debug.log
+*.ignore.js

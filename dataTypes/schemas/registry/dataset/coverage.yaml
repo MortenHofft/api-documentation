@@ -1,0 +1,16 @@
+type: "object"
+required: 
+  - "scientificName"
+  - "rank"
+  - "commonName"
+properties: 
+  scientificName: 
+    description: "TODO"
+    type: "string"
+    example: "Upupidae"
+  rank: 
+    $ref: "./rank.yaml"
+  commonName: 
+    description: "TODO"
+    type: "string"
+    example: "Oso hormiguero"

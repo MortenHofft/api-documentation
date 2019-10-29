@@ -1,0 +1,28 @@
+type: "object"
+required: 
+  - "typeVerbatim"
+  - "count"
+  - "deviation"
+  - "lower"
+  - "upper"
+properties: 
+  typeVerbatim: 
+    description: "TODO"
+    type: "string"
+    example: "pliegos"
+  count: 
+    description: "TODO"
+    type: "integer"
+    example: 0
+  deviation: 
+    description: "TODO"
+    type: "integer"
+    example: 0
+  lower: 
+    description: "TODO"
+    type: "integer"
+    example: 1
+  upper: 
+    description: "TODO"
+    type: "integer"
+    example: 245
