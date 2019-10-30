@@ -59,6 +59,9 @@ tags:
     description: |
       The dataset API provides CRUD and discovery services for datasets. Its most prominent use on the GBIF portal is to drive the dataset search and dataset pages.
       Please note deletion of datasets is logical, meaning dataset entries remain registered forever and only get a deleted timestamp. On the other hand, deletion of a dataset's contacts, endpoints, identifiers, tags, machine tags, comments, and metadata descriptions is physical, meaning the entries are permanently removed.
+  - name: Maps
+    description: |
+      This service is intended for use with commonly used clients such as the OpenLayers or Leaflet Javascript libraries, Google Maps, or some GIS software. These libraries allow the GBIF layers to be visualized with other content, such as those coming from web map service (WMS) providers. It should be noted that the mapping API is not a WMS service, nor does it support WFS capabilities.
   - name: Browser usage examples
     description: |
       Examples of how the APIs can be used to build interfaces
@@ -247,6 +250,107 @@ paths:
                 type: array
                 items:
                   $ref: "./dataTypes/schemas/registry/contact.yaml"
+  /map/occurrence/density/{z}/{x}/{y}{resolution}.{format}:
+    get:
+      operationId: densityMaps
+      tags:
+        - Maps
+      summary: Density maps
+      description: Get high resolution precalculated maps with limited filter options. For arbitrary filters, please use the adhoc maps - the downside of those are that they are slower and have a cruder resolution.
+      parameters:
+      - z:
+        $ref: '#/components/parameters/mapZ'
+      - x:
+        $ref: '#/components/parameters/mapX'
+      - y:
+        $ref: '#/components/parameters/mapY'
+      - format:
+        $ref: '#/components/parameters/mapFormat'
+      - srs:
+        $ref: '#/components/parameters/mapSrs'
+      - bin:
+        $ref: '#/components/parameters/mapBin'
+      - hexPerTile:
+        $ref: '#/components/parameters/mapHexPerTile'
+      - squareSize:
+        $ref: '#/components/parameters/mapSquaresPerTile'
+      - style:
+        $ref: '#/components/parameters/mapStyle'
+      - name: taxonKey
+        in: query
+        description: |
+          Filter on taxonKey
+          This parameter is incompatible with `datasetKey, networkKey, publishingOrg, publishingCountry`.
+        required: false
+        schema:
+          type: integer
+      - name: datasetKey
+        in: query
+        description: |
+          Filter on datasetKey
+          This parameter is incompatible with `taxonKey, networkKey, publishingOrg, publishingCountry`.
+        required: false
+        schema:
+          type: uuid
+      - name: networkKey
+        in: query
+        description: |
+          Filter on networkKey
+          This parameter is incompatible with `taxonKey, datasetKey, publishingOrg, publishingCountry`.
+        required: false
+        schema:
+          type: uuid
+      - name: publishingOrg
+        in: query
+        description: |
+          Filter on publishingOrg
+          This parameter is incompatible with `taxonKey, datasetKey, networkKey, publishingCountry`.
+        required: false
+        schema:
+          type: uuid
+      - name: publishingCountry
+        in: query
+        required: false
+        schema:
+          type: string
+          minLength: 2
+          maxLength: 2
+        description: |
+          Filters by the owining organization's country given as a ISO 639-1 (2 letter) country code. Country codes are listed in our [Country enum](http://api.gbif.org/v1/enumeration/country).
+          This parameter is incompatible with `taxonKey, datasetKey, networkKey, publishingOrg`.
+      - country:
+        $ref: '#/components/parameters/country'
+      - name: year
+        in: query
+        description: Limits the occurrences within a range of years, for example `2000,2010`. Or simply `1990` or `1990,*`
+        required: false
+        schema:
+          type: string
+      - name: basisOfRecord
+        in: query
+        description: Can be given multiple times to include records with that basis of record
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          enum: [OBSERVATION, HUMAN_OBSERVATION, MACHINE_OBSERVATION, MATERIAL_SAMPLE, PRESERVED_SPECIMEN, FOSSIL_SPECIMEN, LIVING_SPECIMEN, LITERATURE, UNKNOWN]
+      responses:
+        '200':
+          description: OK
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+            application/x-protobuf:
+              schema:
+                type: string
+                format: binary
+              examples:
+                sampleFile:
+                  summary: A sample file
+                  externalValue: 'https://api.gbif.org/v2/map/occurrence/density/1/0/1.mvt?srs=EPSG:3857&taxonKey=2440033'
 components:
   securitySchemes:
     BasicAuth:
@@ -256,6 +360,122 @@ components:
       type: http
       scheme: bearer
   parameters:
+    mapSrs:
+      name: srs
+      in: query
+      description: |
+        Spatial reference system. One of:
+          * EPSG:3857 (Web Mercator)
+          * EPSG:4326 (WGS84 plate careé)
+          * EPSG:3575 (Arctic LAEA)
+          * EPSG:3031 (Antarctic stereographic)
+
+        The projection declares how coordinates on Earth are transformed to a two dimensional surface.
+        The tile schema defines how that two dimensional surface is split into smaller square images, and how those images are addressed.
+        Four projections are available for density tiles. Only the second, WGS84, is available for Ad-hoc tiles.
+        
+        Information on the projections is on the [GBIF base map tiles](https://tile.gbif.org/ui/) page.
+      required: true
+      schema:
+        type: string
+        enum: ['EPSG:3857', 'EPSG:4326', 'EPSG:3575', 'EPSG:3031']
+    mapBin:
+      name: bin
+      in: query
+      description: |
+        `square` or `hex` to aggregate occurrence counts into squares or hexagons. Points by default. TODO what to parse if I want points (aside from not filling it)
+      required: false
+      schema:
+        type: string
+        enum: ['', 'square', 'hex']
+    mapHexPerTile:
+      name: hexPerTile
+      in: query
+      description: Sets the size of the hexagons (the number horizontally across a tile). Only applies for `bin=hex`
+      required: false
+      schema:
+        type: string
+    mapSquaresPerTile:
+      name: squareSize
+      in: query
+      description: Sets the size of the squares. Choose a factor of 4096 so they tessalate correctly
+      required: false
+      schema:
+        type: integer
+        enum: [8, 16, 32, 64, 128, 256, 512]
+    mapStyle:
+      name: style
+      in: query
+      description: |
+        Only applies to raster tiles (PNG). Choose from the available styles. Defaults to classic.point. 
+        
+        Styles ending with `.point` should only be used by point binning. And styles ending with `.poly` or `.marker` should be used when binning by `hex` or `square`.
+        <div class="mapThumbnails">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?style=purpleHeat.point&srs=EPSG:4326&taxonKey=797" title="purpleHeat.point">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?style=blueHeat.point&srs=EPSG:4326&taxonKey=797" title="blueHeat.point">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?style=orangeHeat.point&srs=EPSG:4326&taxonKey=797" title="orangeHeat.point">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?style=greenHeat.point&srs=EPSG:4326&taxonKey=797" title="greenHeat.point">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?style=classic.point&srs=EPSG:4326&taxonKey=797" title="classic.point">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?style=purpleYellow.point&srs=EPSG:4326&taxonKey=797" title="purpleYellow.point">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?style=fire.point&srs=EPSG:4326&taxonKey=797" title="fire.point">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?style=glacier.point&srs=EPSG:4326&taxonKey=797" title="glacier.point">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=classic.poly&srs=EPSG:4326&taxonKey=797" title="classic.poly">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=classic-noborder.poly&srs=EPSG:4326&taxonKey=797" title="classic-noborder.poly">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=purpleYellow.poly&srs=EPSG:4326&taxonKey=797" title="purpleYellow.poly">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=purpleYellow-noborder.poly&srs=EPSG:4326&taxonKey=797" title="purpleYellow-noborder.poly">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=green.poly&srs=EPSG:4326&taxonKey=797" title="green.poly">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=green2.poly&srs=EPSG:4326&taxonKey=797" title="green2.poly">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=iNaturalist.poly&srs=EPSG:4326&taxonKey=797" title="iNaturalist.poly">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=purpleWhite.poly&srs=EPSG:4326&taxonKey=797" title="purpleWhite.poly">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=red.poly&srs=EPSG:4326&taxonKey=797" title="red.poly">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=blue.marker&srs=EPSG:4326&taxonKey=797" title="blue.marker">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=orange.marker&srs=EPSG:4326&taxonKey=797" title="orange.marker">
+          <img class="mapThumbnail" src="https://api.gbif.org/v2/map/occurrence/density/0/0/0@Hx.png?bin=hex&hexPerTile=20&style=outline.poly&srs=EPSG:4326&taxonKey=797" title="outline.poly">
+        </div>
+      required: false
+      schema:
+        type: integer
+        enum: ['purpleHeat.point', 'blueHeat.point', 'orangeHeat.point', 'greenHeat.point', 'classic.point', 'purpleYellow.point', 'fire.point', 'glacier.point', 'classic.poly', 'classic-noborder.poly', 'purpleYellow.poly', 'purpleYellow-noborder.poly', 'green.poly', 'green2.poly', 'iNaturalist.poly', 'purpleWhite.poly', 'red.poly', 'blue.marker', 'orange.marker', 'outline.poly']
+    mapZ:
+      name: z
+      in: path
+      description: zoom
+      required: true
+      schema:
+        type: integer
+    mapX:
+      name: x
+      in: path
+      description: column
+      required: true
+      schema:
+        type: integer
+    mapY:
+      name: y
+      in: path
+      description: row
+      required: true
+      schema:
+        type: integer
+    mapFormat:
+      name: resolution
+      in: path
+      description: |
+        What resolution and format to get the image in
+
+        Options:
+        * `.mvt` for a vector tile
+        * `@Hx.png` for a 256px raster tile (for legacy clients)
+        * `@1x.png` for a 512px raster tile
+        * `@2x.png` for a 1024px raster tile
+        * `@3x.png` for a 2048px raster tile
+        * `@4x.png` for a 4096px raster tile
+        
+        The larger raster tiles are intended for high resolution displays, e.g. 4K displays and many mobile phones.
+      required: true
+      schema:
+        type: string
+        enum: ['.mvt', '@Hx.png', '@1x.png', '@2x.png', '@3x.png', '@4x.png']
     offsetParam:
       in: query
       name: offset
